@@ -28,9 +28,10 @@ def main():
         if key_lst[pg.K_LEFT]: #左矢印キーが押されたら
             kt_rct.move_ip((-1, 0)) #左に移動
         if key_lst[pg.K_RIGHT]: #右矢印キーが押されたら
-            kt_rct.move_ip((1, 0)) #右に移動
+            kt_rct.move_ip((2, 0)) #右に移動　#演習1: 風に流されるため、より強い力で前に進む
             
         x = tmr%3200
+        kt_rct.move_ip(-1, 0) #演習1: こうかとんが風に流されるようにする
         screen.blit(bg_img, [-x, 0]) #練習５：背景画像を右から左へ
         screen.blit(bg_img2, [-x+1600, 0]) #練習７：２枚目のSurface
         screen.blit(bg_img, [-x+3200, 0]) #練習９：３枚目の背景画像の描画
