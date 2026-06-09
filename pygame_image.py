@@ -21,14 +21,18 @@ def main():
             if event.type == pg.QUIT: return
             
         key_lst = pg.key.get_pressed() #練習10-3: 全てのキーの押下状態の取得
+        
+        x = 0
+        y = 0
         if key_lst[pg.K_UP]: #上矢印キーが押されたら
-            kt_rct.move_ip((0, -1)) #上に移動
+            y -= 1#上に移動
         if key_lst[pg.K_DOWN]: #下矢印キーが押されたら
-            kt_rct.move_ip((0, +1)) #下に移動
+            y += 1#下に移動
         if key_lst[pg.K_LEFT]: #左矢印キーが押されたら
-            kt_rct.move_ip((-1, 0)) #左に移動
+            x -= 1#左に移動
         if key_lst[pg.K_RIGHT]: #右矢印キーが押されたら
-            kt_rct.move_ip((2, 0)) #右に移動　#演習1: 風に流されるため、より強い力で前に進む
+            x += 2 #右に移動　#演習1: 風に流されるため、より強い力で前に進む
+        kt_rct.move_ip(x, y) #演習2:　move_ipを一回だけ使用
             
         x = tmr%3200
         kt_rct.move_ip(-1, 0) #演習1: こうかとんが風に流されるようにする
